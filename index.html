@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>爱游戏 · 资料整理与信息索引指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f0f2f4;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.65;
+      color: #1c2a3a;
+      padding: 2rem 1rem;
+    }
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    /* —— hero / 开篇 —— */
+    .hero-card {
+      background: #ffffff;
+      border: 1px solid #dce1e6;
+      border-radius: 28px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 20, 30, 0.03);
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .hero-card:hover {
+      box-shadow: 0 10px 24px rgba(0, 20, 30, 0.04);
+    }
+    .hero-title {
+      font-weight: 500;
+      font-size: 2.2rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.65rem;
+      color: #0b1b29;
+      line-height: 1.2;
+    }
+    .hero-title strong {
+      font-weight: 600;
+      color: #1d4e6b;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #475a6b;
+      margin-bottom: 1.6rem;
+      border-left: 4px solid #b8cadb;
+      padding-left: 1rem;
+    }
+    .hero-text {
+      font-size: 1rem;
+      color: #2e404f;
+    }
+    .hero-text a {
+      color: #1d6f8f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #b3ccde;
+    }
+    .hero-text a:hover {
+      border-bottom: 1px solid #1d6f8f;
+      color: #10445c;
+    }
+    /* —— 卡片网格 —— */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #dce1e6;
+      border-radius: 24px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      padding: 1.8rem 1.8rem 2rem;
+      transition: box-shadow 0.18s, transform 0.1s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 20, 30, 0.04);
+    }
+    .card h3 {
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: #153244;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card h3 .deco {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #a0bbd0;
+      border-radius: 10px;
+      margin-right: 0.4rem;
+    }
+    .card p {
+      margin-bottom: 0.65rem;
+      color: #2b4052;
+    }
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+    .card ul {
+      list-style: none;
+      margin: 0.5rem 0 0.2rem;
+    }
+    .card li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      color: #2b4052;
+    }
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.1rem;
+      color: #7493ab;
+      font-weight: 700;
+    }
+    .compact-note {
+      font-size: 0.9rem;
+      color: #5a6f80;
+      border-top: 1px solid #e5eaef;
+      margin-top: 0.9rem;
+      padding-top: 0.6rem;
+    }
+    .tag {
+      display: inline-block;
+      background: #e8edf3;
+      color: #1f4055;
+      font-size: 0.75rem;
+      padding: 0.12rem 0.65rem;
+      border-radius: 30px;
+      margin-right: 0.3rem;
+      letter-spacing: 0.01em;
+    }
+    /* —— 使用建议 + 索引卡片 —— */
+    .wide-card {
+      background: #ffffff;
+      border: 1px solid #dce1e6;
+      border-radius: 24px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2rem;
+    }
+    .wide-card h2 {
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: #0e2b3e;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: flex-start;
+    }
+    .flex-row .col {
+      flex: 1 1 200px;
+      min-width: 180px;
+    }
+    .flex-row .col p {
+      margin-bottom: 0.4rem;
+    }
+    .step-number {
+      display: inline-block;
+      font-weight: 500;
+      color: #1d5a78;
+      margin-right: 0.5rem;
+    }
+    .insight-badge {
+      background: #dce9f2;
+      border-radius: 40px;
+      padding: 0.08rem 0.8rem;
+      color: #12415a;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    /* —— FAQ 摘要 —— */
+    .faq-block {
+      background: #ffffff;
+      border: 1px solid #dce1e6;
+      border-radius: 24px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .faq-block h2 {
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: #0e2b3e;
+      margin-bottom: 1rem;
+    }
+    .faq-item {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #e9edf3;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-q {
+      font-weight: 500;
+      color: #1c3b4f;
+      margin-bottom: 0.2rem;
+    }
+    .faq-a {
+      color: #3b5568;
+      font-size: 0.92rem;
+    }
+    /* —— 小彩蛋 / 提示 —— */
+    .note-box {
+      background: #edf2f7;
+      border-radius: 30px;
+      padding: 0.7rem 1.5rem;
+      display: inline-block;
+      font-size: 0.85rem;
+      color: #34566b;
+      border: 1px solid #d0dce8;
+      margin-top: 0.8rem;
+    }
+    /* —— 响应式 —— */
+    @media (max-width: 700px) {
+      body { padding: 1.2rem 0.8rem; }
+      .hero-card { padding: 2rem 1.2rem; }
+      .hero-title { font-size: 1.7rem; }
+      .grid-2 { grid-template-columns: 1fr; gap: 1.2rem; }
+      .wide-card { padding: 1.5rem 1.2rem; }
+      .faq-block { padding: 1.2rem 1rem; }
+      .flex-row { gap: 1.2rem; }
+    }
+    @media (max-width: 460px) {
+      .hero-title { font-size: 1.5rem; }
+      .card h3 { font-size: 1.1rem; }
+    }
+    footer {
+      margin-top: 2.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #677e90;
+      padding: 1rem 0 0.5rem;
+      border-top: 1px solid #d5dee7;
+    }
+    footer a {
+      color: #3f647c;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+
+  <!-- Hero -->
+  <div class="hero-card">
+    <h1 class="hero-title">资料整理视角 · <strong>爱游戏</strong></h1>
+    <div class="hero-sub">信息索引 · 内容聚合 · 产品说明</div>
+    <p class="hero-text">
+      从资料汇编与信息索引的角度切入，<a href="https://officialportal-aiyouxi.com.cn">爱游戏</a> 所呈现的并非单一产品，而是一个围绕游戏内容组织的轻量级信息节点。以下从摘要、功能亮点、使用建议及可信访问说明四个维度展开，为有意了解该站点的读者提供一份结构化的参考。
+    </p>
+    <div class="note-box">📋 本文档基于公开信息整理，内容仅供学习与参考。</div>
+  </div>
+
+  <!-- 两栏卡片：摘要 + 亮点 -->
+  <div class="grid-2">
+    <!-- 左侧：摘要 -->
+    <div class="card">
+      <h3><span class="deco"></span> 摘要 · 定位</h3>
+      <p>「爱游戏」可被视作一个面向游戏兴趣的信息索引页面。站点内容偏向于聚合与分类，而非深度原创；其结构便于快速浏览游戏相关条目，适合作为资料查找的起点。</p>
+      <p>从索引质量来看，该站保持了基本的分类清晰度，在信息层级上采用平铺式导航，降低初次访问的理解成本。</p>
+      <div class="compact-note">
+        <span class="tag">索引型</span>
+        <span class="tag">轻内容</span>
+        <span class="tag">分类浏览</span>
+      </div>
+    </div>
+    <!-- 右侧：亮点 -->
+    <div class="card">
+      <h3><span class="deco"></span> 突出特点</h3>
+      <ul>
+        <li>分类入口直观：按常见游戏类型或主题进行条目归类，减少检索步骤。</li>
+        <li>页面轻量化：无冗余脚本干扰，信息加载速度较快，适合内容浏览。</li>
+        <li>适度的信息密度：每个条目附带简短说明，平衡了概览与细节。</li>
+        <li>一致的视觉框架：卡片与列表组合，阅读节奏稳定。</li>
+      </ul>
+      <p style="margin-top: 0.3rem;">这些特点使 <a href="https://officialportal-aiyouxi.com.cn">爱游戏</a> 成为一个可被纳入“游戏资料索引”书签的工具型页面。</p>
+    </div>
+  </div>
+
+  <!-- 使用建议 (较宽卡片) -->
+  <div class="wide-card">
+    <h2>📌 使用建议 · 从索引到延伸</h2>
+    <div class="flex-row">
+      <div class="col">
+        <p><span class="step-number">①</span> <strong>作为发现入口</strong><br>利用站内分类快速了解当前收录的游戏主题，标记感兴趣的方向后再通过其他平台深入查阅评测或攻略。</p>
+      </div>
+      <div class="col">
+        <p><span class="step-number">②</span> <strong>交叉验证信息</strong><br>索引页通常提供概括性描述，建议结合官方文档或社区讨论核实具体细节，形成更完整的信息拼图。</p>
+      </div>
+      <div class="col">
+        <p><span class="step-number">③</span> <strong>定期回访</strong><br>若站点持续更新分类或条目，可将其作为资讯变迁的观察窗口；否则可将其视为静态资料库使用。</p>
+        <div style="margin-top: 0.3rem;"><span class="insight-badge">索引思维</span> 不必依赖单一来源</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="faq-block">
+    <h2>❓ 常见疑问摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">「爱游戏」的信息来源是什么？</div>
+      <div class="faq-a">根据页面内容推断，其信息多来自公开游戏资料与厂商披露，站点本身承担聚合与再组织角色，不直接生产原始数据。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">是否可以直接引用该站内容？</div>
+      <div class="faq-a">建议将站点作为索引线索，引用时返回原始来源或官方公告以保证准确性；对于概括性描述可酌情参考。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">页面是否保持更新？</div>
+      <div class="faq-a">更新频率未明确声明，用户可通过对比时间戳或内容时效性自行判断。对于长期未变动的条目宜持保留态度。</div>
+    </div>
+    <div style="margin-top: 0.6rem; font-size: 0.9rem; color: #3b5a70; border-left: 3px solid #b0c9db; padding-left: 0.9rem;">
+      💡 索引类站点宜作为信息链路的起点，而非终点。
+    </div>
+  </div>
+
+  <!-- 可信但克制的访问说明 / 提醒 -->
+  <div style="background: #ffffff; border: 1px solid #dce1e6; border-radius: 24px; padding: 1.6rem 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+    <p style="color: #1f3b4e; font-weight: 500; margin-bottom: 0.4rem;">🔍 可信访问说明</p>
+    <p style="color: #2b4d63; font-size: 0.95rem; margin-bottom: 0.3rem;">
+      该站点采用常规 HTTP/HTTPS 协议，未发现强制弹窗或异常跳转行为。作为内容索引页，其可信度主要取决于收录信息的原始出处。建议访问 <a href="https://officialportal-aiyouxi.com.cn">爱游戏</a> 时留意条目附带的参考来源，并适度交叉对比。
+    </p>
+    <p style="color: #486c82; font-size: 0.88rem; margin-top: 0.3rem;">
+      不存在任何形式的诱导点击或夸大承诺，页面整体风格克制，符合信息索引类站点的一般规范。
+    </p>
+  </div>
+
+  <footer>
+    <span>资料整理 · 索引说明 · <a href="https://officialportal-aiyouxi.com.cn" style="border-bottom: 1px dotted #a0b8cc;">爱游戏</a></span><br>
+    <span style="opacity: 0.7;">基于公开信息汇编 · 仅供学习参考</span>
+  </footer>
+</div>
+</body>
+</html>

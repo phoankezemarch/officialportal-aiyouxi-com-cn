@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://phoankezemarch.github.io/officialportal-aiyouxi-com-cn/sitemap.xml
