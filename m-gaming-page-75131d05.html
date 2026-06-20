@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG游戏 · 资料索引与知识库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f0e8;
+            font-family: 'Hoefler Text', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #2d2a24;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .container {
+            background-color: #faf7f2;
+            padding: 2.4rem 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            border-bottom: 1px solid #d9cfc0;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.8rem;
+            color: #2c241b;
+        }
+
+        h1 small {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #8b7e6f;
+            margin-left: 0.8rem;
+            letter-spacing: 0.04em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 2.4rem 0 1rem 0;
+            padding-left: 0.6rem;
+            border-left: 4px solid #b8a693;
+            color: #3a3127;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin: 1.6rem 0 0.6rem 0;
+            color: #4a3f33;
+        }
+
+        p {
+            margin: 0.8rem 0;
+            text-indent: 0;
+        }
+
+        .intro-text {
+            font-size: 1.08rem;
+            background: #ede8df;
+            padding: 1.2rem 1.6rem;
+            border-radius: 14px;
+            margin: 1.2rem 0 1.8rem 0;
+            line-height: 1.8;
+            color: #2f2a22;
+        }
+
+        .intro-text strong {
+            font-weight: 500;
+            color: #1f1a14;
+        }
+
+        .grid-catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 1.8rem 0 1.2rem 0;
+        }
+
+        .catalog-item {
+            background: #f0ebe3;
+            padding: 1.2rem 1.2rem 0.9rem;
+            border-radius: 12px;
+            border: 1px solid #ddd5c8;
+            transition: background 0.15s;
+        }
+
+        .catalog-item:hover {
+            background: #e9e1d5;
+        }
+
+        .catalog-item .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #8b7b69;
+            margin-bottom: 0.2rem;
+        }
+
+        .catalog-item .title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2d241b;
+        }
+
+        .catalog-item .desc {
+            font-size: 0.92rem;
+            color: #5c5244;
+            margin-top: 0.25rem;
+        }
+
+        .quote-box {
+            background: #eae2d6;
+            padding: 1rem 1.6rem;
+            border-radius: 20px 8px 20px 8px;
+            margin: 2rem 0 1.6rem 0;
+            border-left: 6px solid #b8a387;
+            font-style: normal;
+            color: #3d352b;
+        }
+
+        .quote-box p {
+            margin: 0.3rem 0;
+        }
+
+        .info-highlight {
+            background: #f3efe9;
+            padding: 1.4rem 1.6rem;
+            border-radius: 16px;
+            margin: 1.8rem 0;
+            border: 1px solid #d9cfbe;
+        }
+
+        .info-highlight strong {
+            color: #4d3f2e;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1rem 0;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #d9cfc0;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #3b3126;
+        }
+
+        .faq-item .a {
+            color: #5a4f40;
+            margin-top: 0.2rem;
+            padding-left: 0.4rem;
+        }
+
+        .link-embed {
+            color: #7e6e5a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b7a894;
+        }
+
+        .link-embed:hover {
+            color: #3d2f1f;
+            text-decoration-color: #3d2f1f;
+        }
+
+        .meta-note {
+            margin-top: 2.4rem;
+            font-size: 0.92rem;
+            color: #7d7264;
+            border-top: 1px solid #ddd5c6;
+            padding-top: 1.4rem;
+            text-align: left;
+        }
+
+        .meta-note a {
+            color: #6b5e4e;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .container {
+                padding: 1.6rem 1.2rem 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h1 small {
+                display: block;
+                margin-left: 0;
+                margin-top: 0.2rem;
+            }
+
+            .grid-catalog {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .intro-text {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>PG游戏 · 资料整理索引 <small>知识库入口</small></h1>
+
+    <div class="intro-text">
+        <p>从信息组织和资料索引的角度出发，围绕 <strong>PG游戏</strong> 建立一份可延伸的阅读框架。这里不追逐热点，也不堆砌术语，而是将分散的素材、机制说明、版本记录与玩家讨论整理成结构化的条目，方便随时查阅与回溯。如果你正在系统了解 <a href="https://m-gaming-pgsoft.com" class="link-embed">PG游戏</a> 的整体面貌，这份索引或许能成为一份安静的起点。</p>
+    </div>
+
+    <h2>📁 内容目录</h2>
+    <div class="grid-catalog">
+        <div class="catalog-item">
+            <div class="label">基础 · 01</div>
+            <div class="title">玩法与机制</div>
+            <div class="desc">核心规则、返回值设定、连击与特征触发</div>
+        </div>
+        <div class="catalog-item">
+            <div class="label">索引 · 02</div>
+            <div class="title">题材与视觉笔记</div>
+            <div class="desc">东方、探险、神话、休闲等风格档案</div>
+        </div>
+        <div class="catalog-item">
+            <div class="label">参考 · 03</div>
+            <div class="title">版本与更新记录</div>
+            <div class="desc">界面调整、参数平衡、功能迭代摘要</div>
+        </div>
+        <div class="catalog-item">
+            <div class="label">讨论 · 04</div>
+            <div class="title">玩家观察与 FAQ</div>
+            <div class="desc">常见疑问、策略笔记与社区视角</div>
+        </div>
+    </div>
+
+    <h2>📖 说明区 · 关于这份索引</h2>
+    <p>这份页面并非官方文档，而是基于公开资料与长期使用经验归纳而成的知识卡片集。每一部分都尽量保持克制，不夸大、不诱导，只陈述可验证的信息。如果你对某个条目感兴趣，可以以此为线索进一步查阅原始材料。</p>
+    <p>在整理过程中，我们注意到 <strong>PG游戏</strong> 的叙事风格常常融合地域文化与现代视觉语言，这一特点在多个主题中都有体现。例如东方题材中惯用的水墨重构，以及探险类场景里的动态光影——这些细节在官方素材库中均有记录。</p>
+
+    <div class="quote-box">
+        <p>📌 提示区：查阅时建议关注游戏内“帮助/信息”页面，那里通常包含最准确的赔付表与功能说明。第三方资料可作为补充，但请以版本实际表现为准。</p>
+    </div>
+
+    <h2>🧩 相关信息区</h2>
+    <div class="info-highlight">
+        <p><strong>· 适用场景：</strong>个人研究、内容创作参考、玩法对比、历史版本梳理。</p>
+        <p><strong>· 资料来源：</strong>综合自官方说明、版本更新日志、玩家社区整理及部分媒体评测，已做交叉核对。</p>
+        <p><strong>· 更新频率：</strong>随主要版本发布不定期修订，重大机制调整会同步更新索引条目。</p>
+    </div>
+
+    <h3>▸ 常见问题摘要</h3>
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="q">问：PG游戏 的机制在不同题材中差异大吗？</div>
+            <div class="a">核心框架通常保持一致，但连击方式、特殊符号的触发条件会根据主题有所调整，建议查阅对应作品的参数表。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">问：如何获取最准确的游戏规则？</div>
+            <div class="a">每个游戏内都内置了完整的规则说明与赔率表，这是最权威的来源。索引中也会收录对应的摘要与对比。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">问：这份索引会包含主观评测吗？</div>
+            <div class="a">不包含。我们以记录和整理为主，不提供评级、推荐或胜负预测，保持资料的中性。</div>
+        </div>
+    </div>
+
+    <p style="margin-top: 1.6rem;">如果你想直接查看产品本身，可以前往 <a href="https://m-gaming-pgsoft.com" class="link-embed">PG游戏</a> 官网浏览最新内容。建议同时结合本索引的条目结构，能帮助更快定位自己关心的部分。</p>
+
+    <div class="meta-note">
+        <span>📄 索引版本 · 2025 · 持续修订中</span> 
+        <span>本页面为知识库入口式介绍页，内容基于公开信息整理。</span>
+    </div>
+</div>
+</body>
+</html>
